@@ -1,0 +1,11 @@
+node {
+    checkout scm
+
+    docker.withRegistry('https://registry.example.com', 'docker_hub') {
+
+        def customImage = docker.build("akumawat4692/ankur")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+}
